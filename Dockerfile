@@ -3,4 +3,5 @@ WORKDIR /app
 ADD . /app
 RUN npm install
 EXPOSE 2021
-CMD npm start & sleep infinity
+RUN npm start &
+CMD sleep infinity
