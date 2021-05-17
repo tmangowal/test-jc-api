@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Deliver') {
           steps {
-            sh 'docker container rm --force test-api && docker run --name test-api -p 2021:2021 tmangowal/test-api'
+            sh 'docker container rm --force test-api && docker run --name test-api -p 2021:2021 tmangowal/test-api &'
           }
         }
     }
