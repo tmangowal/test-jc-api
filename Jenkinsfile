@@ -1,20 +1,15 @@
 pipeline {
-    agent {
-      docker {
-        image 'node'
-        args '-p 2021:2021'
-      }
-    }
+    agent any
 
     stages {
         stage('Build') {
             steps {
-              sh 'npm install'
+              sh 'docker build -t tmangowal/test-api .'
             }
         }
         stage('Deliver') {
           steps {
-            sh 'npm start'
+            sh 'docker run --name test-api -p 2021:2021 tmangowal/test-api'
           }
         }
     }
