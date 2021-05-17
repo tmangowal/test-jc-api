@@ -2,10 +2,15 @@ pipeline {
     agent any
 
     stages {
-        stage('Hello') {
+        stage('Build') {
             steps {
-                echo 'Hello World'
+              sh 'docker build -t tmangowal/test-api .'
             }
+        }
+        stage('Deliver') {
+          steps {
+            sh 'docker run -p 2021:2021 tmangowal/test-api'
+          }
         }
     }
 }
