@@ -4,4 +4,4 @@ ADD . /app
 RUN npm install
 EXPOSE 2021
 RUN npm start &
-CMD sleep infinity
+CMD sleep 1
